@@ -66,6 +66,13 @@ body {
     transition: opacity 0.15s ease-out;
 }
 
+a[id]::before {
+    content: "";
+    display: block;
+    height: 50px;
+    margin: -30px 0 0;
+}
+
 @layer components {
     .btn-primary {
         @apply py-2 px-4 bg-steel-500 text-white font-semibold rounded-lg shadow-md hover:bg-steel-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;

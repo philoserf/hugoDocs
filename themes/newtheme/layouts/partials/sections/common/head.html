@@ -41,6 +41,14 @@
   {{ block "scripts" . }}
     {{/*- partial "site-scripts.html" . TODO1 -*/}}
   {{ end }}
+  {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
+  {{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2016" "params" dict }}
+  {{ $js := resources.Get "js/main/index.js" }}
+  {{ $js := $js | js.Build $opts }}
+  {{- if  hugo.IsProduction  }}
+    {{ $js = $js | fingerprint }}
+  {{ end -}}
+  <script src="{{ $js.RelPermalink }}" {{ if  hugo.IsProduction  }} integrity="{{ $js.Data.Integrity }}" {{ end }} crossorigin="anonymous" defer></script>
   {{ partialCached "jslibs/alpinejs/script-src.html" "-" }}
   {{ partial "site-manifest.html" . }}
   {{- partial "head-additions.html" . -}}

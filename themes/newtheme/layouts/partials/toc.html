@@ -13,14 +13,22 @@
     {{ end }}
   {{ end }}
   
-  {{/*- TODO(bep) if .Params.godocref -}}
-    <a target="_blank" class="tooltip right godoc-link" data-tooltip="See the related Godocs for {{.Title }}" href="{{.Params.godocref}}" ></a>
-  {{- end -*/}}
-
-  <p class="font-bold mb-2">
-    See Also
-  </p>
-  {{ partial "related.html" . }}
+  {{ $related := .Site.RegularPages.Related . | first 5 }}
+  {{ with $related }}
+    <p class="font-bold mb-2">
+      See Also
+    </p>
+    <ul class="text-md">
+      {{ range . }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+  
   <div class="mt-8">
     {{- partial "previous-next-links-in-section.html" . -}}
   </div>

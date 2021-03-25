@@ -21,7 +21,13 @@ module.exports = {
 					css: {
 						maxWidth: '75ch',
 						'code::before': false,
-						'code::after': false
+						'code::after': false,
+						'tbody td:first-child': false
+					}
+				},
+				lg: {
+					css: {
+						'tbody td:first-child': false
 					}
 				}
 			}),
