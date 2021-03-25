@@ -96,5 +96,6 @@
     {{ block "footer" . }}
       {{ partialCached "site-footer.html" . }}
     {{ end }}
+    {{ partial "sections/common/before-body-end.html" . }}
   </body>
 </html>

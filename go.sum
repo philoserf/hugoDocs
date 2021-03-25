@@ -33,3 +33,7 @@ github.com/gohugoio/hugo-mod-jslibs/alpinejs v0.8.1 h1:79Hepvk2suBAqr3YIIH/VNUhf
 github.com/gohugoio/hugo-mod-jslibs/alpinejs v0.8.1/go.mod h1:TDfVrqBdmTyCtJ0LQBDYQMRZFlUN/HtNLidriNqqh3M=
 github.com/gohugoio/hugo-mod-jslibs/alpinejs v0.8.2 h1:AsRKGqrVYZKsGnuO1V+62y4HhtCQuOsVxZ5NyGHjXqY=
 github.com/gohugoio/hugo-mod-jslibs/alpinejs v0.8.2/go.mod h1:TDfVrqBdmTyCtJ0LQBDYQMRZFlUN/HtNLidriNqqh3M=
+github.com/gohugoio/hugo-mod-jslibs/instantpage v0.5.1 h1:Aig+0MOPXiuQNZpnxOMS4uwUsnyq41JnQzGW4Gk3o7Y=
+github.com/gohugoio/hugo-mod-jslibs/instantpage v0.5.1/go.mod h1:N4EUbbL7Cw4Yq+GHeK3MUSiOJQbzfuUFRyvBKvnVBR8=
+github.com/instantpage/instant.page v5.1.0+incompatible h1:/Z2XRXfY5HwuCN3TTqo56PaFyIlDr4l3tyytR/jGHXI=
+github.com/instantpage/instant.page v5.1.0+incompatible/go.mod h1:GXVDktwI+K4T9o5mcK2NYDqPFxAUrB9U9goR9oG1SaI=
