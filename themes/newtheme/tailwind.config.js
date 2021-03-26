@@ -11,6 +11,8 @@ const em = (px, base) => `${round(px / base)}em`;
 const px = (px) => `${px}px`;
 
 module.exports = {
+	darkMode: 'class', // See https://tailwindcss.com/docs/dark-mode
+	important: '#gohugoio', // See https://tailwindcss.com/docs/configuration#important
 	theme: {
 		fontFamily: {
 			...theme.fontFamily,
@@ -159,7 +161,6 @@ module.exports = {
 			}
 		}
 	},
-	important: '#gohugoio', // See https://tailwindcss.com/docs/configuration#important
 	purge: {
 		enabled: process.env.HUGO_ENVIRONMENT === 'production',
 		content: [ './hugo_stats.json', './layouts/**/*.html' ],

@@ -9,20 +9,20 @@
   {{ $code = $.Inner }}
 {{ end  }}
 {{ $langs := (slice "yaml" "toml" "json") }}
-<div x-data="{ selected: 'tab0' }" class="code-toggle border rounded-md bg-white border-gray-200">
+<div x-data class="code-toggle border rounded-md bg-white border-gray-200">
   <nav class="relative z-0 rounded-lg shadow flex divide-x divide-gray-200" aria-label="Tabs">
     {{ range $i, $lang := $langs }}
-      <a href="#" x-on:click="selected = 'tab{{ $i }}'"
+      <a href="#" x-on:click="$store.userSettings.configFileType = '{{ index $langs $i }}'"
 	 class="text-gray-900 rounded-l-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10" aria-current="page">
         <span>
           {{ printf "%s.%s" $file . }}
         </span>
-        <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5" x-bind:class="{ 'bg-steel-500': selected === 'tab{{ $i }}' }"></span>
+        <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5" x-bind:class="{ 'bg-steel-500': $store.userSettings.configFileType === '{{ index $langs $i }}' }"></span>
       </a>
     {{ end }}
   </nav>
   {{ range $i, $lang := $langs }}
-    <div x-bind:class="{ 'block': selected === 'tab{{ $i }}', 'hidden': selected !== 'tab{{ $i }}' }">
+    <div x-bind:class="{ 'block': $store.userSettings.configFileType === '{{ index $langs $i }}', 'hidden': $store.userSettings.configFileType !== '{{ index $langs $i }}' }">
       {{ highlight ($code | transform.Remarshal . | safeHTML) . ""}}
     </div>
   {{ end }}
