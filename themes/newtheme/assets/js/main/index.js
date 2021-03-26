@@ -1,6 +1,15 @@
 // Client state.
 (function() {
+	const toggleDarkMode = function(dark) {
+		if (dark) {
+			document.body.classList.add('dark');
+		} else {
+			document.body.classList.remove('dark');
+		}
+	};
+
 	window.Spruce.store(
+		// TODO1 namespace these? e.g. hugo_
 		// userSettings gets persisted between page navigations.
 		// Access it in a Alpine template with constructs like
 		//   $store.userSettings.configFileType
@@ -17,11 +26,7 @@
 	Spruce.watch('userSettings.colorScheme', function(val) {
 		// TODO(bep) respect browser setting somehow?
 		// See https://tailwindcss.com/docs/dark-mode
-		if (val === 'dark') {
-			document.documentElement.classList.add('dark');
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
+		toggleDarkMode(val === 'dark');
 	});
 })();
 
@@ -31,6 +36,9 @@
 	window.hc = {
 		colorSchemeController: function() {
 			return {
+				isLoaded: function() {
+					return this.$store.userSettings;
+				},
 				isDark: function() {
 					return this.$store.userSettings.colorScheme === 'dark';
 				},
